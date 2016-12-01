@@ -3,6 +3,12 @@ json2
 
 simple utility for transforming json documents into grep-able and sed-able lines
 
+install
+-------
+
+    # json2 was already taken
+    npm install -g 2json
+
 usage
 -----
 
