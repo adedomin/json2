@@ -18,6 +18,8 @@ var json2 = (obj, path, cb) => {
         obj.forEach((val, index) => {
             if (val.indexOf('"') > -1) val = val.replace(/"/g, '\\"')
             if (val.indexOf('/') > -1) val = `"${val}"`
+            else if (val.indexOf('[') > -1) val = `"${val}"`
+            else if (val.indexOf(']') > -1) val = `"${val}"`
             cb(`${path}[${index}]/${val}`)
         })
     }
@@ -25,12 +27,16 @@ var json2 = (obj, path, cb) => {
         Object.keys(obj).forEach(key => {
             if (key.indexOf('"') > -1) key = key.replace(/"/g, '\\"')
             if (key.indexOf('/') > -1) key = `"${key}"`
+            else if (key.indexOf('[') > -1) key = `"${key}"`
+            else if (key.indexOf(']') > -1) key = `"${key}"`
             json2(obj[key], `${path}/${key}`, cb)
         })
     }
     else {
         if (obj.indexOf('"') > -1) obj = obj.replace(/"/g, '\\"')
         if (obj.indexOf('/') > -1) obj = `"${obj}"`
+        else if (obj.indexOf('[') > -1) obj = `"${obj}"`
+        else if (obj.indexOf(']') > -1) obj = `"${obj}"`
         cb(`${path}/${obj}`)
     }
 }

@@ -21,7 +21,6 @@ var fs = require('fs'),
     pretty = null
 
 process.argv.slice(2).forEach(arg => {
-    console.log(arg)
     if (arg == '-p' || arg == '--pretty') {
         pretty = 4
     }
