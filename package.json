@@ -1,0 +1,29 @@
+{
+  "name": "2json",
+  "version": "0.0.1",
+  "description": "json flattener that outputs lines similar to xml2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeneralUnRest/json2.git"
+  },
+  "keywords": [
+    "xml2",
+    "json2"
+  ],
+  "author": "prussian <genunrest@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeneralUnRest/json2/issues"
+  },
+  "homepage": "https://github.com/GeneralUnRest/json2#readme",
+  "devDependencies": {
+    "pegjs": "^0.10.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.2"
+  }
+}
