@@ -24,6 +24,17 @@ usage
     # change package name and reconvert lines to json using 2json
     json2 < package.json | sed 's@\(/name\)/.*@\1/new-name@' | 2json -p
 
+escapes for json2/2json
+-----------------------
+
+The following are escaped--by being in quote strings, as per rules:
+ 
+  * all forward slashes (/)
+  * all index brackets ([ or ])
+  * all strings that are just number characters (e.g. 00193425)
+
+You must escape double quotes in strings, json2 does this.
+
 notes
 ------
 

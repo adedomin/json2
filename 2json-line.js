@@ -160,7 +160,9 @@ function peg$parse(input, options) {
             },
       peg$c15 = peg$otherExpectation("unquoted string"),
       peg$c16 = function(string) {
-              return string.join('')  
+              var str = string.join('')  
+              if (/^\d+$/.test(str)) return +str
+              return str
             },
       peg$c17 = function(elem, next) { return {
               [elem]: next

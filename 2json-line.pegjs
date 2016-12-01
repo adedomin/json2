@@ -36,7 +36,9 @@ quote_string 'string'
 
 unquote_string 'unquoted string'
     = string:char* {
-        return string.join('')  
+        var str = string.join('')  
+        if (/^\d+$/.test(str)) return +str
+        return str
       }
 
 element

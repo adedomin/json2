@@ -13,30 +13,31 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+var escape_special = (val) => {
+    if (typeof val == 'number') return val
+    if (val.indexOf('"') > -1) val = val.replace(/"/g, '\\"')
+    if (val.indexOf('/') > -1) val = `"${val}"`
+    else if (val.indexOf('[') > -1) val = `"${val}"`
+    else if (val.indexOf(']') > -1) val = `"${val}"`
+    else if (/^\d+$/.test(val)) val = `"${val}"`
+    return val
+}
+
 var json2 = (obj, path, cb) => {
     if (obj instanceof Array) {
         obj.forEach((val, index) => {
-            if (val.indexOf('"') > -1) val = val.replace(/"/g, '\\"')
-            if (val.indexOf('/') > -1) val = `"${val}"`
-            else if (val.indexOf('[') > -1) val = `"${val}"`
-            else if (val.indexOf(']') > -1) val = `"${val}"`
+            val = escape_special(val)
             cb(`${path}[${index}]/${val}`)
         })
     }
     else if (obj instanceof Object) {
         Object.keys(obj).forEach(key => {
-            if (key.indexOf('"') > -1) key = key.replace(/"/g, '\\"')
-            if (key.indexOf('/') > -1) key = `"${key}"`
-            else if (key.indexOf('[') > -1) key = `"${key}"`
-            else if (key.indexOf(']') > -1) key = `"${key}"`
+            key = escape_special(key)
             json2(obj[key], `${path}/${key}`, cb)
         })
     }
     else {
-        if (obj.indexOf('"') > -1) obj = obj.replace(/"/g, '\\"')
-        if (obj.indexOf('/') > -1) obj = `"${obj}"`
-        else if (obj.indexOf('[') > -1) obj = `"${obj}"`
-        else if (obj.indexOf(']') > -1) obj = `"${obj}"`
+        obj = escape_special(obj)
         cb(`${path}/${obj}`)
     }
 }
