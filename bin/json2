@@ -15,7 +15,7 @@
  */
 
 var fs = require('fs'),
-    json2 = require(__dirname+'/../index')
+    json2 = require(__dirname+'/../json2')
     instream = process.stdin,
     inbuffer = ''
 

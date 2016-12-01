@@ -16,18 +16,17 @@
 var jsonline = require('./2json-line'),
     _ = require('lodash')
 
-var _2json = (lines, obj = {}) => {
-    if (lines.length > 0) {
-        var line = lines.shift()
-        if (/^\s*$/.test(line)) return _2json(lines, obj)
+module.exports = (lines) => {
+    var obj = {}
+    lines.forEach(line => {
+        if (/^\s*$/.test(line)) return
         line = jsonline.parse(line)
-        return _2json(lines, _.mergeWith(obj, line, (l, r) => {
+        _.mergeWith(obj, line, (l, r) => {
             if (l instanceof Array && r instanceof Array)
                 return l.concat(r)
             return undefined
-        }))
-    }
+        })
+    })
+
     return obj
 }
-
-module.exports = _2json

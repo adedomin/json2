@@ -2,7 +2,7 @@
   "name": "2json",
   "version": "0.0.1",
   "description": "json flattener that outputs lines similar to xml2",
-  "main": "index.js",
+  "main": "json2.js",
   "bin": {
     "json2": "./bin/json2",
     "2json": "./bin/2json"
