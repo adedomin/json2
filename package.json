@@ -1,6 +1,6 @@
 {
   "name": "2json",
-  "version": "0.2.0-readme~1",
+  "version": "0.2.0-readme1",
   "description": "json flattener that outputs lines similar to xml2",
   "main": "json2.js",
   "bin": {
