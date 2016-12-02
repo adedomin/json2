@@ -14,14 +14,14 @@
  */
 
 var jsonline = require('./2json-line'),
-    _ = require('lodash')
+    mergeWith = require('lodash.mergewith')
 
 module.exports = (lines) => {
     var obj = {}
     lines.forEach(line => {
         if (/^\s*$/.test(line)) return
         line = jsonline.parse(line)
-        _.mergeWith(obj, line, (l, r) => {
+        mergeWith(obj, line, (l, r) => {
             if (l instanceof Array && r instanceof Array)
                 return l.concat(r)
             return undefined

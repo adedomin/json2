@@ -28,9 +28,10 @@ qchar
 char
   = unescaped
   / escape '"' { return '"' }
-  / escape escape { return '\\' }
   / escape 'n' { return '\n' }
   / escape 'r' { return '\r' }
+  / escape 'f' { return '\f' }
+  / escape escape { return '\\' }
 
 quote_string 'string'
     = '"' string:qchar* '"' { 

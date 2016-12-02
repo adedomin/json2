@@ -14,7 +14,8 @@
  */
 
 var handle_control = (val) => {
-    val = val.replace(/"/g, '\\"')
+    val = val.replace(/\\/g, '\\\\')
+             .replace(/"/g, '\\"')
              .replace(/\r/g, '\\r')
              .replace(/\n/g, '\\n')
              .replace(/\f/g, '\\f')

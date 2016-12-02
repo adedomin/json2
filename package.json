@@ -1,6 +1,6 @@
 {
   "name": "2json",
-  "version": "0.2.0-readme1",
+  "version": "0.2.1",
   "description": "json flattener that outputs lines similar to xml2",
   "main": "json2.js",
   "bin": {
@@ -29,6 +29,6 @@
     "pegjs": "^0.10.0"
   },
   "dependencies": {
-    "lodash": "^4.17.2"
+    "lodash.mergewith": "^4.6.0"
   }
 }

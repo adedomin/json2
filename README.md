@@ -36,6 +36,16 @@ The following are escaped--by being in quote strings, as per rules:
 
 You must escape double quotes in strings, json2 does this.
 
+backslash escapes for 2json
+---------------------------
+
+The following characters must be escaped to handle issues with newlines using backslashes, whether in quotes or not:
+
+    \ <- escape as \\
+    \n
+    \r
+    \f
+
 notes
 ------
 
