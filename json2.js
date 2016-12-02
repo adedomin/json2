@@ -13,9 +13,17 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+var handle_control = (val) => {
+    val = val.replace(/"/g, '\\"')
+             .replace(/\r/g, '\\r')
+             .replace(/\n/g, '\\n')
+             .replace(/\f/g, '\\f')
+    return val
+}
+
 var escape_special = (val) => {
     if (typeof val == 'number') return val
-    if (val.indexOf('"') > -1) val = val.replace(/"/g, '\\"')
+    val = handle_control(val)
     if (val.indexOf('/') > -1) val = `"${val}"`
     else if (val.indexOf('[') > -1) val = `"${val}"`
     else if (val.indexOf(']') > -1) val = `"${val}"`
