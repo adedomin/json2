@@ -16,7 +16,8 @@ usage
     json2 [file] [< or_file]
 
     # 2json
-    2json [file] [< or_file]
+    # -p flag pretty prints json
+    2json [file] [< or_file] [-p --pretty]
 
     # get package name
     basename $(json2 package.json | grep '/name')
